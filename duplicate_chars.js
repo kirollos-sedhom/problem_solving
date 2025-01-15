@@ -1,4 +1,4 @@
-/*  
+/*
 Grandpa's hand isn't as steady as it used to be. You finally convinced him
 to start using a password manager, but he accidentally typed and saved his
 password with a bunch of extra characters. Help him recover his password by 
@@ -11,7 +11,7 @@ is lowercased with only letters and numbers.
 Example input: "aabbccb1212"
 Example output: "abc12"
 */ 
-const password = "9338dsabbbadjdjdj2sdfdfdf282ff8fdsd888ss8cfgfg332q23"; 
+const password = "9338dsabbbadjdjdj2sdfdfdf282ff8fdsd888ss8cfgfg332q234"; 
 
 
 function removeDupeChars(chars){
