@@ -30,9 +30,9 @@ const kittyPrizes = [
 
 // alternative way
 
-function flatten(arr){
+function flatten(array){
     let flattenedArr = []
-    arr.forEach(element => {
+    array.forEach(element => {
         if (Array.isArray(element)){
             flattenedArr = [...flattenedArr, ...flatten(element)]
         }
