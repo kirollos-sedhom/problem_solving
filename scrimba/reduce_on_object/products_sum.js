@@ -8,11 +8,11 @@ Example output: 73.44
 */
 
 function total(arr){
-    let total =  Object.keys(arr).reduce(add, 0)
-    function add(previous,key){
+    let total = arr.reduce(add, 0)
+    function add(previous,item){
     
         
-        return previous + arr[key].price
+        return previous + item.price
     }
     return total.toFixed(2);
 }
