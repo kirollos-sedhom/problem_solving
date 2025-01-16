@@ -24,7 +24,7 @@ const gameNightFood = {
 function findTheWinner(obj){
     let VotedFood = ""
     let VotesCount = 0
-    for (let key of Object.keys(obj))
+    for (let key in Object.keys(obj))
     {
         if (obj[key] > VotesCount){
             VotedFood = key
