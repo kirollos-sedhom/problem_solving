@@ -1,44 +1,17 @@
-var menu = [
-    { name: "Margherita", price: 8 },
-    { name: "Pepperoni", price: 10 },
-    { name: "Hawaiian", price: 10 },
-    { name: "Veggie", price: 9 },
+var users = [
+    { id: 1, username: "john_doe", role: "member" },
+    { id: 2, username: "jane_smith", role: "contributor" },
+    { id: 3, username: "alice_jones", role: "admin" },
+    { id: 4, username: "charlie_brown", role: "member" },
 ];
-var cashInRegister = 100;
-var nextOrderId = 1;
-var orderQueue = [];
-function addNewPizza(pizzaObj) {
-    menu.push(pizzaObj);
+function updateUser(id, updates) {
+    // Find the user in the array by the id
+    // Use Object.assign to update the found user in place. 
+    // Check MDN if you need help with using Object.assign
+    var foundUser = users.find(function (user) { return user.id === id; });
+    Object.assign(foundUser, updates);
 }
-function placeOrder(pizzaName) {
-    var selectedPizza = menu.find(function (pizzaObj) { return pizzaObj.name === pizzaName; });
-    if (!selectedPizza) {
-        console.error("".concat(pizzaName, " does not exist in the menu"));
-        return;
-    }
-    cashInRegister += selectedPizza.price;
-    var newOrder = { id: nextOrderId++, pizza: selectedPizza, status: "ordered" };
-    orderQueue.push(newOrder);
-    return newOrder;
-}
-function completeOrder(orderId) {
-    var order = orderQueue.find(function (order) { return order.id === orderId; });
-    if (!order) {
-        console.error("".concat(orderId, " was not found in the orderQueue"));
-        return;
-    }
-    order.status = "completed";
-    return order;
-}
-addNewPizza({ name: "Chicken Bacon Ranch", price: 12 });
-addNewPizza({ name: "BBQ Chicken", price: 12 });
-addNewPizza({ name: "Spicy Sausage", price: 11 });
-placeOrder("Chicken Bacon Ranch");
-placeOrder("Pepperoni");
-completeOrder(1);
-placeOrder("Anchovy");
-placeOrder("Veggie");
-completeOrder(2);
-console.log("Menu:", menu);
-console.log("Cash in register:", cashInRegister);
-console.log("Order queue:", orderQueue);
+// Example updates:
+updateUser(1, { username: "new_john_doe" });
+updateUser(4, { role: "contributor" });
+console.log(users);
